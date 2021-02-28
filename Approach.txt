@@ -1,0 +1,9 @@
+Approach - 
+
+1. Imputed the null values - For Holding_Policy_Duration, I assumed that the customer has no previous insurance. For Health Indicator and Holding_Policy_Type, I put dummy values X99999 and 99999 respectively.
+
+2. Replaced 14+ value in Holding_Policy_Duration column with 18 and converted it into numeric column.
+
+3. Ran a CatBoost Classifier Model, with following hyper-parameters: scale_pos_weight = 3.17, iterations=500, depth=6, learning_rate=0.1
+In this model, I passed the indices of Categorical columns so that the model can internally handle it.
+Tried external encoding techniques also like, One-hot encoding, target encoding, frequency encoding but it didn't improve my leaderboard score.
